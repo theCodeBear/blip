@@ -2,10 +2,45 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Dosis:500' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js?"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLAW56jAzO71401mgdhSb3N9iFrfsHvsE&libraries=visualization&sensor=true_or_false"></script>
+    <script src="javascripts/main.js"></script>
+    
+
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+
+    <div class="page-header">
+      <h1><%= title %></h1>
+    </div>
+    <div class="container">
+    <form class="form-inline col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 input-group" role="form">
+      <input type="text" class="form-control" name="tag"></input>
+      <span class="input-group-btn"><input type="submit" class="btn btn-primary" name="submit" value="Submit"></submit></span>
+    </form>
+  </div>
+
+    <!-- where the google map will display -->
+    <div id="map" class="col-sm-12"></div>  
+
+
+    <!-- Preloader from PreLoadMe -->
+    <script type="text/javascript">
+      //<![CDATA[
+        $(window).load(function() { // makes sure the whole site is loaded
+          $('#status').fadeOut(); // will first fade out the loading animation
+          $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+          $('body').delay(350).css({'overflow':'visible'});
+        })
+      //]]>
+    </script>
   </body>
 </html>

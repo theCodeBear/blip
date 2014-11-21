@@ -6,3 +6,101 @@ body {
 a {
   color: #00B7FF;
 }
+
+/* Google maps style for their example */
+html, body, #map {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  position: relative;
+  border: 1px solid green;
+  margin-bottom: 1em;
+  background-color: lightblue;
+  width: 100%;
+}
+
+
+h1 {
+  position: relative;
+  display: inline;
+  font-family: 'Dosis', sans-serif;
+  font-weight: bold;
+  font-size: 4em;
+  left: 1em;
+}
+
+form {
+  border: 2px solid red;
+  margin-bottom: 1em;
+}
+
+/*form {
+  text-align: center;
+  width: 50%;
+  display: inline;
+  margin: 0 auto;
+}
+
+input {
+  display: inline;
+}*/
+
+.page-header {
+  background-color: lightblue;
+  margin-top: 0;
+  width: 100%;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+  .form-control {
+    height: 3em;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+  .form-control {
+    height: 1em;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+  .form-control {
+    height: 1em;
+  }
+}
+
+/* Preloader CSS */
+body {
+  overflow: hidden;
+}
+
+/* Preloader */
+
+#preloader {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:#fff; /* change if the mask should have another color then white */
+    z-index:99; /* makes sure it stays on top */
+}
+
+#status {
+    width:200px;
+    height:200px;
+    position:absolute;
+    left:50%; /* centers the loading animation horizontally one the screen */
+    top:50%; /* centers the loading animation vertically one the screen */
+    background-image:url(../img/status.gif); /* path to your loading animation */
+    background-repeat:no-repeat;
+    background-position:center;
+    margin:-100px 0 0 -100px; /* is width and height divided by two */
+}

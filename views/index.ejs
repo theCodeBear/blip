@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="blip">
   <head>
     <title><%= title %></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -13,25 +13,22 @@
 
   </head>
   <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
-
     <div class="page-header">
-      <h1><%= title %></h1>
+      <div class="left-menu pull-left">Profile</div>
+      <div class="right-menu pull-right">Friends</div>
     </div>
-    <div class="container">
-    <form class="form-inline col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 input-group" role="form">
-      <input type="text" class="form-control" name="tag"></input>
-      <span class="input-group-btn"><input type="submit" class="btn btn-primary" name="submit" value="Submit"></submit></span>
-    </form>
-  </div>
+ 
 
     <!-- where the google map will display -->
     <div id="map" class="col-sm-12"></div>  
 
-
+    <footer class="footer">
+      <div class="container">
+        <div class="col-md-3">chat</div>
+        <div class="col-md-6 text-center">Blip!</div>
+        <div class="col-md-3 text-right">friend-filter</div>
+      </div>
+    </footer>
     <!-- Preloader from PreLoadMe -->
     <script type="text/javascript">
       //<![CDATA[

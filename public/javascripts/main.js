@@ -20,7 +20,7 @@ var heatMapData = [
     });
   } else {
   // Print out a message to the user if no geolocation support.
-    document.write('Your browser does not support GeoLocation');
+    console.log('Your browser does not support GeoLocation');
   }
 
 
@@ -33,7 +33,8 @@ var heatMapData = [
     var mapOptions = {
       zoom: 14,
       center: {lat: myLat, lng: myLong},
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      disableDefaultUI: true
     };
     // Generate the map
     var heatmap = new google.maps.visualization.HeatmapLayer({

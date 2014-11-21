@@ -4,7 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+//facebook
+var passport = require('passport');
+var FacebookStrategy = require('passport-facebook').Strategy;
+ 
+var FACEBOOK_APP_ID = '315814421955145';
+var FACEBOOK_APP_SECRET = '456739d28288f8775b65e7b9c919cccc';
+//
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -21,9 +27,39 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//facebook
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', routes);
 app.use('/users', users);
+
+//facebook
+passport.use(new FacebookStrategy({
+  clientID: FACEBOOK_APP_ID,
+  clientSecret: FACEBOOK_APP_SECRET,
+  callbackURL: 'http://localhost:3000/auth/facebook/callback'
+}, function(accessToken, refreshToken, profile, done) {
+  process.nextTick(function() {
+    //Assuming user exists
+    done(null, profile);
+  });
+}));
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+ 
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
+app.get('/auth/facebook', passport.authenticate('facebook'));
+ 
+app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+  successRedirect: '/success',
+  failureRedirect: '/error'
+}));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

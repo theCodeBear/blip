@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="facebookLogin">
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Dosis:500' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js?"></script>
+  </head>
+  <body>
+    
+    <div class="container" ng-controller="MainController">
+      <div class="alert alert-info" data-ng-show="salutation">Hello, {{user.name}}</div>
+      <div class="alert alert-warning" data-ng-show="byebye">Bye bye :'(</div>
+    </div>
+    
+    <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()">Login with Facebook</button>
+    <button type="button" class="btn btn-danger btn-large" data-ng-show="logged" data-ng-disabled="!facebookReady" data-ng-click="logout()">Logout</button>
+    
+    <div>
+      <debug val="user"></debug>
+    </div>
+
+
+  </body>
+</html>
